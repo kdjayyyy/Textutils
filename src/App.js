@@ -8,7 +8,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
 } from 'react-router-dom';
 
 export default function App() {
@@ -20,9 +19,6 @@ export default function App() {
       msg: message,
       type: type,
     });
-
-    // Turn the alert to null after 2 seconds
-    // using the setTimeout() function
     setTimeout(() => {
       setAlert(null);
     }, 1200);
@@ -57,7 +53,7 @@ export default function App() {
           </Route>
 
           <Route exact path="/about">
-            <About />
+            <About mode={mode}/>
           </Route>
 
         </Switch>

@@ -45,12 +45,18 @@ export default function Textform(props) {
 
 
   // UTILITY FUNCTIONS
-
   const countWords = (str) => {
     const trimmedStr = str.trim();
     if (trimmedStr === '') return 0;
     return trimmedStr.split(/\s+/).length;
   };
+
+
+  // STYLES
+  const textAreaStyle = {
+    backgroundColor: props.mode === 'dark' ? '#1b1f22' : 'white',
+    color: props.mode === 'dark' ? '#dee2e6' : 'black'
+  }
 
   return (
     <>
@@ -60,29 +66,26 @@ export default function Textform(props) {
         <h1 style={{ color: props.mode === 'dark' ? '#dee2e6' : 'black' }}>{props.header}</h1>
         <div className="mb-3">
           <textarea className="form-control" id="myBox" rows={3} value={text} onChange={(event) => setText(event.target.value)}
-            style={{
-              backgroundColor: props.mode === 'dark' ? '#1b1f22' : 'white',
-              color: props.mode === 'dark' ? '#dee2e6' : 'black'
-            }} />
+            style={textAreaStyle}/>
         </div>
 
-        <button className={`btn btn-primary mx-2 ${props.mode === 'dark' ? 'btn-custom-dark' : 'btn-custom-light'}`} onClick={handleUpClick}>
+        <button className={`btn btn-primary mx-2 my-2 ${props.mode === 'dark' ? 'btn-custom-dark' : 'btn-custom-light'}`} onClick={handleUpClick}>
           Convert to uppercase
         </button>
 
-        <button className={`btn btn-success mx-2 ${props.mode === 'dark' ? 'btn-custom-dark' : 'btn-custom-light'}`} onClick={handleLoClick} >
+        <button className={`btn btn-success mx-2 my-2 ${props.mode === 'dark' ? 'btn-custom-dark' : 'btn-custom-light'}`} onClick={handleLoClick} >
           Convert to lowercase
         </button>
 
-        <button className={`btn btn-info mx-2 ${props.mode === 'dark' ? 'btn-custom-dark' : 'btn-custom-light'}`} onClick={onClickClear}>
+        <button className={`btn btn-info mx-2 my-2 ${props.mode === 'dark' ? 'btn-custom-dark' : 'btn-custom-light'}`} onClick={onClickClear}>
           Clear text
         </button>
 
-        <button className={`btn btn-warning mx-2 ${props.mode === 'dark' ? 'btn-custom-dark' : 'btn-custom-light'}`} onClick={copyToClipboard}>
+        <button className={`btn btn-warning mx-2 my-2 ${props.mode === 'dark' ? 'btn-custom-dark' : 'btn-custom-light'}`} onClick={copyToClipboard}>
           Copy to clipboard
         </button>
 
-        <button className={`btn btn-secondary mx-2 ${props.mode === 'dark' ? 'btn-custom-dark' : 'btn-custom-light'}`} onClick={handleExtraSpaces}>
+        <button className={`btn btn-secondary mx-2 my-2 ${props.mode === 'dark' ? 'btn-custom-dark' : 'btn-custom-light'}`} onClick={handleExtraSpaces}>
           Delete extra spaces
         </button>
 
